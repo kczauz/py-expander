@@ -23,12 +23,12 @@ def _extract(archive_path, destination):
     """
     # 'e': extract to current working dir
     # '-y': assume yes to all (overwrite)
-    process_info = [config.EXECUTABLE, 'e', '-y', archive_path]
+    process_info = [config.EXECUTABLE, 'e', '-y', archive_path, destination]
 
     logger.debug('Running %r' % process_info)
 
-    # Change current working directory since 7Zip only works with e flag.
-    output = subprocess.check_output(process_info, cwd=destination)
+    # unrar 
+    output = subprocess.check_output(process_info)
 
     logger.debug('Output: %s' % output)
 

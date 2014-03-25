@@ -2,11 +2,11 @@ import os
 import sys
 
 
-TV_PATH = '/tv/directory'
-MOVIE_PATH = '/movies/directory'
-APP_PATH = '/apps/directory'
-MUSIC_PATH = '/music/directory'
-
+TV_PATH = '/mnt/usb/Media/TV Shows/{series}/Season {season}/{series} - {season}x{episode}{extension}'
+MOVIE_PATH = '/mnt/usb/Media/Movies/{title} ({year})/{title} ({year}){extension}'
+APP_PATH = '/mnt/usb/Apps/'
+MUSIC_PATH = '/mnt/usb/Media/Music'
+UKNOWN_PATH = '/mnt/usb/Downloads/extracted/'
 
 EXTRACTION_FILES_MASK = '770'
 
@@ -38,5 +38,5 @@ def _find_executable(filename):
     raise Exception(filename + ' not found or is not in system PATH')
 
 
-EXECUTABLE = _find_executable('7z')  # Currently only 7z is supported.
+EXECUTABLE = _find_executable('unrar')  # apt-get install unrar
 

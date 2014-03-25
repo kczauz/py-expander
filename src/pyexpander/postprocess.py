@@ -51,11 +51,11 @@ def _handle_directory(directory, handler, torrent_name):
 
                 original_path = os.path.join(directory_path, filename)
 
-                destination_dir = os.path.join(category_path, torrent_name)
+                destination_dir = category_path
 
                 # Creates target directory (of category path)
-                _create_extraction_path(destination_dir)
-                destination_path = os.path.join(destination_dir, filename)
+                _create_extraction_path(os.path.dirname(destination_dir))
+                destination_path = destination_dir
 
                 try:
                     # Move\Copy all relevant files to their location (keep original files for uploading)

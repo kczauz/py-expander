@@ -13,18 +13,21 @@ SOFTWARE_EXTENSIONS = ['.iso', '.exe']
 
 
 def get_path_video(filename):
-    guess = guessit.guess_video_info(filename)
+    guess = guessit.guess_file_info(filename)
+    fileName, fileExtension = os.path.splitext(filename)
 
     if guess[u'type'] == u'episode':
         series = guess.get(u'series', u'').title()
         season = guess.get(u'season', u'')
+        episode = guess.get(u'episodeNumber', u'')
 
-        return config.TV_PATH.format(series=series, season=season)
+        return config.TV_PATH.format(series=series, season=season, extension=fileExtension, episode=episode)
     elif guess[u'type'] == u'movie':
         title = guess.get(u'title', u'').title()
         year = guess.get(u'year', u'')
+        container = guess.get(u'container', 'u')
 
-        return config.MOVIE_PATH.format(title=title, year=year)
+        return config.MOVIE_PATH.format(title=title, year=year, extension=fileExtension)
     else:
         return None
 
@@ -55,5 +58,7 @@ def get_categorized_path(filename):
     else:
         # file is not recognized by any of the categories/checks.
         logger.debug("%s is not in any relevant category, ignoring" % filename)
+        logger.debug("%s is not in any relevant category, moving to exracted folder %s" %(filename, extractdir) )
+        categorized_path = config.UKNOWN_PATH
 
     return categorized_path
