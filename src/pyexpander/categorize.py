@@ -58,7 +58,7 @@ def get_categorized_path(filename):
     else:
         # file is not recognized by any of the categories/checks.
         logger.debug("%s is not in any relevant category, ignoring" % filename)
-        logger.debug("%s is not in any relevant category, moving to exracted folder %s" %(filename, extractdir) )
-        categorized_path = config.UKNOWN_PATH
+        logger.debug("%s is not in any relevant category, moving to exracted folder %s" %(filename, config.UNKOWN_PATH) )
+        categorized_path = config.UNKNOWN_PATH
 
     return categorized_path

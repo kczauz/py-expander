@@ -6,7 +6,7 @@ TV_PATH = '/mnt/usb/Media/TV Shows/{series}/Season {season}/{series} - {season}x
 MOVIE_PATH = '/mnt/usb/Media/Movies/{title} ({year})/{title} ({year}){extension}'
 APP_PATH = '/mnt/usb/Apps/'
 MUSIC_PATH = '/mnt/usb/Media/Music'
-UKNOWN_PATH = '/mnt/usb/Downloads/extracted/'
+UNKNOWN_PATH = '/mnt/usb/Downloads/extracted/'
 
 EXTRACTION_FILES_MASK = '770'
 

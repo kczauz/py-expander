@@ -27,7 +27,7 @@ if __name__== "__main__":
 
     stats = {}
     mem_used = {}
-    for origpath in gen_files("/mnt/usb/Downloads/complete/The.Walking.Dead.S04E15.HDTV.x264-2HD/_extracted", "blueray|1080p|720p|x264"):
+    for origpath in gen_files("/mnt/usb/Downloads/complete/Orphan.Black.S01.720p.HDTV.x264-FF/_extracted/unpacked_1/", "mkv"):
         destpath = categorize.get_categorized_path(origpath)
 
         postprocess._create_extraction_path(os.path.dirname(destpath))
@@ -40,9 +40,13 @@ if __name__== "__main__":
             subprocess.check_output(['chmod', config.EXTRACTION_FILES_MASK, '-R', os.path.dirname(destpath)])
         except OSError as e:
             logger.exception("Failed to %s %s : %s" % ("shutil.move", origpath, e))
+        except IOError as e:
+            logger.exception("Failed to %s %s : %s" % ("shutil.move", origpath, e))
 
         try:
             os.rmdir(os.path.dirname(origpath))
         except OSError as ex:
             if ex.errno == errno.ENOTEMPTY:
                 print "%s not empty yet.." %origpath
+        except IOError as ex:
+                logger.exception("Failed to remove %s: %s" % (origpath, e))
