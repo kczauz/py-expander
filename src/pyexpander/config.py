@@ -8,7 +8,7 @@ APP_PATH = '/mnt/usb/Apps/'
 MUSIC_PATH = '/mnt/usb/Media/Music'
 UNKNOWN_PATH = '/mnt/usb/Downloads/extracted/'
 
-EXTRACTION_FILES_MASK = '770'
+EXTRACTION_FILES_MASK = '775'
 
 
 LOGFILE = '/var/log/pyexp.log'
